@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using InterviewExercises.Model;
 
 namespace InterviewExercises
 {
@@ -30,11 +33,35 @@ namespace InterviewExercises
 			Console.WriteLine(result);
 		}
 
-		private async Task<string> SaySomething()
+		private static async Task<string> SaySomething()
 		{
 			await Task.Delay(5);
 			result = "Hello world!";
 			return "Something";
+		}
+
+		#endregion
+
+		#region Ex3 
+
+		public List<Movie> Ex3(bool useIEnumerable = true)
+		{
+			var dc = new MyDataContext();
+
+			// What is the difference in the SQL generation between the following two snippets?
+
+			if (useIEnumerable)
+			{
+				IEnumerable<Movie> moviesIEnumerable = dc.Movies.Where(p => p.Name.StartsWith("S"));
+				moviesIEnumerable = moviesIEnumerable.Take<Movie>(10);
+
+				return moviesIEnumerable.ToList();
+			}
+
+			IQueryable<Movie> moviesIQueryable = dc.Movies.Where(p => p.Name.StartsWith("S"));
+			moviesIQueryable = moviesIQueryable.Take<Movie>(10);
+
+			return moviesIQueryable.ToList();
 		}
 
 		#endregion
