@@ -1,0 +1,19 @@
+﻿/* Explain what the following CSS selectors are used for. */
+
+div { }
+ 
+.foo { }
+ 
+div.foo { }
+ 
+#foo { }
+ 
+.foo .bar { }
+ 
+.foo > .bar { }
+ 
+.foo.bar { }
+
+.foo + .bar { }
+ 
+.foo * { }

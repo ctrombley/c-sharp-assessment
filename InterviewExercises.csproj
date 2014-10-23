@@ -51,9 +51,14 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Exercises.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="SolutionTests\SolutionTests.cs" />
     <Compile Include="UnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="JavaScript1.js" />
+    <Content Include="Stylesheet1.css" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
